@@ -60,8 +60,11 @@ npm install -g newman-reporter-htmlextra
 8. ### Delete Specific Booking
 	> Used the DELETE method 
 ## Newman Report Summary:
-![Report](https://github.com/Anika154/Customer_Details_Rest_API/assets/54212195/91043030-3b8c-4da0-ae28-b519a1cee6e5)
-![Report](https://github.com/Anika154/Customer_Details_Rest_API/assets/54212195/a6a3a781-7502-4776-860b-4f35f0e4be28)
+![Screenshot 2023-08-15 223844](https://github.com/Anika154/Passenger_Rest_API/assets/54212195/e09b9bb1-35b0-4446-86c8-7d89e8bfb256)
+![Screenshot 2023-08-15 224202](https://github.com/Anika154/Passenger_Rest_API/assets/54212195/be29534e-be3d-4f1b-8643-915a9fb22cbd)
+
+
+
 
 
 
