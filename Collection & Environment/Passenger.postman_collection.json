@@ -166,6 +166,15 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
@@ -302,6 +311,49 @@
 		},
 		{
 			"name": "Delete Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = responseCode.code;\r",
+							"\r",
+							"switch (response) { \r",
+							"    case 200:\r",
+							"        var jsonData = pm.response.json()\r",
+							"        pm.test(\"You have successfully Delete the Passenger Record\", function(){\r",
+							"            pm.expect(jsonData.msg).to.eql(\"Delete  data success\")\r",
+							"        })\r",
+							"        break;\r",
+							"\r",
+							"    case 400:\r",
+							"        pm.test(\"Bad Request-400\");\r",
+							"        break;\r",
+							"\r",
+							"    case 401:\r",
+							"        pm.test(\"Unable to identify employee\");\r",
+							"        break;\r",
+							"\r",
+							"    case 404:\r",
+							"        pm.test(\"Not Found-404\");\r",
+							"        break;\r",
+							"\r",
+							"    case 500:\r",
+							"        pm.test(\"Internal Server Error -500\");\r",
+							"        break;\r",
+							"    \r",
+							"    case 503:\r",
+							"        pm.test(\"Service Unavailable-503\");\r",
+							"        break;\r",
+							"}\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -312,16 +364,13 @@
 					}
 				],
 				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/1",
-					"protocol": "https",
+					"raw": "{{base_url}}/booking/{{id}}",
 					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
+						"{{base_url}}"
 					],
 					"path": [
 						"booking",
-						"1"
+						"{{id}}"
 					]
 				}
 			},
